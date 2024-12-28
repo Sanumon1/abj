@@ -6,7 +6,7 @@ from base.models import BaseModel
 class category(BaseModel):
     category_name=models.CharField(max_length=100)
     slug = models.SlugField(unique = True,null= True,blank=True)
-    category_image=models.ImageField(upload="catogoriescd")
+    category_image=models.ImageField(upload_to="catogoriescd")
 
 class product(BaseModel):
     product_name = models.CharField(max_length=100)
@@ -17,5 +17,5 @@ class product(BaseModel):
 
 class productImage(BaseModel):
     product = models.ForeignKey(product,on_delete=models.CASCADE,related_name="product_images")
-    image = models.ImageField(upload="product")
+    image = models.ImageField(upload_to="product")
 
